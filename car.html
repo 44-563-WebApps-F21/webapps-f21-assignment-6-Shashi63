@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>my car page</title>
+        <header><h1>nagireddy shashidhar reddy orders a car</h1></header>
+    </head>
+ 
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <input type="checkbox" id="electric_car" name="property_1" class="form-check-input" value="electric_car">
+    <label for="electric_car" class="form-check-label">electric_car</label><br>
+
+    <input type="checkbox" id="air_condition" name="property_2" class="form-check-input" value="air_condition">
+    <label for="air_condition" class="form-check-label">air_condition</label><br>
+
+    <input type="checkbox" id="navigation" name="property_3" class="form-check-input" value="navigation">
+    <label for="navigation" class="form-check-label">navigation</label><br>
+
+    <input type="button" onclick=" orderCar() " value=" Order a Car ">
+</form>
+
+<p id="result">This text will be replaced </p>
+
+<form>
+    <label for="name">Enter a property </label>
+    <input type ="text" id="name" name="Propertyname" value="color"> <br>
+
+    <label for="value">Enter a value </label>
+    <input type ="text" id="value" name="Propertyvalue"> <br>
+
+    <input type="button" onclick="updateCar()" value="Update car">
+</form>
+
+<script> 
+    let my_car = {}
+    function orderCar ()
+    {
+            my_car = {}
+            index0 = document.getElementById("electric_car").checked
+            index1 = document.getElementById("air_condition").checked
+            index2 = document.getElementById("navigation").checked
+            my_car = {electric_car: index0,air_condition: index1,navigation: index2}
+            document.getElementById("result").innerHTML = "my_car"+JSON.stringify(my_car)
+    }
+      
+    function updateCar()
+    {
+            property_name = document.getElementById("name").value
+            property_value = document.getElementById("value").value
+            my_car[property_name] = property_value
+            document.getElementById("result").innerHTML = JSON.stringify(my_car)
+    }
+
+</script>
+
+</body>
+</html>
